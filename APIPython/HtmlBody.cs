@@ -7,7 +7,7 @@ namespace APIPython
 {
     public class HtmlBody
     {
-        
+
         //"Case Number","Subject","Area","Catagory","Status","Time Loged(Hr)","Billable Time(Min)","Assigned To"
         public string MailBodyData(DataTable maildata)
         {
@@ -16,17 +16,17 @@ namespace APIPython
 
             var result = from test in maildata.AsEnumerable()
 
-                          group test by new { Area = test[" Area "] } into groupby
+                         group test by new { Area = test[" Area "] } into groupby
 
-                          select new
+                         select new
 
-                          {
+                         {
 
-                              Value = groupby.Key,
+                             Value = groupby.Key,
 
-                              ColumnValues = groupby
+                             ColumnValues = groupby
 
-                          };
+                         };
 
             string MailBody = "<table style=\"color:blue; border: 1px solid #dddddd\"><tr><th>Area</th><th>Subject</th><th>Billable Time(Min)</th><th>Assigned To</th></tr>";
 
